@@ -4,14 +4,14 @@
 
 'use strict';
 
-var accountCtrl = require("../api/api");
+var cloneCtrl = require("../api/clone");
 
 module.exports = {
 
 
     '/git/clone' : {
         methods: ['post'],
-        fn: [accountCtrl.clone]
+        fn: [cloneCtrl.clone]
     }
 
 };
