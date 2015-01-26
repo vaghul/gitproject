@@ -98,7 +98,7 @@ function changejsontime(parent) {
      if(parent.type=='file')
      {
     //console.log(parent.path+"/"+ parent.name);
-    parent.localtimestamp=new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+    parent.localtimestamp=new Date().toString();
     
   }
      };
