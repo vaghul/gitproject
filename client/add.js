@@ -148,7 +148,7 @@ if (!child.parentId) child.parentId = parent.id || '0';
 if(parent.type=="file")
 {
 var stat=fs.statSync("./"+parent.path+"/"+parent.name);
-console.log(parent.localtimestamp);
+//console.log(parent.localtimestamp);
 //parent.servertimestamp=stat["mtime"].toString();
 if(new Date(parent.localtimestamp)<stat["mtime"])
 {
