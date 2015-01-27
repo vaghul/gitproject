@@ -5,25 +5,9 @@
     "children": [
         {
             "path": "/json",
-            "name": ".DS_Store",
-            "type": "file",
-            "servertimestamp": "00.00",
-            "localtimestamp": "00.00",
-            "modified": "false"
-        },
-        {
-            "path": "/json",
-            "name": "file.js",
-            "type": "file",
-            "servertimestamp": "00.00",
-            "localtimestamp": "00.00",
-            "modified": "false"
-        },
-        {
-            "path": "/json",
             "name": "json.js",
             "type": "file",
-            "servertimestamp": "00.00",
+            "servertimestamp": "2015-01-27T12:18:15.875Z",
             "localtimestamp": "00.00",
             "modified": "false"
         },
@@ -31,7 +15,7 @@
             "path": "/json",
             "name": "test.json",
             "type": "file",
-            "servertimestamp": "00.00",
+            "servertimestamp": "2015-01-27T12:18:15.875Z",
             "localtimestamp": "00.00",
             "modified": "false"
         },
@@ -39,7 +23,7 @@
             "path": "/json",
             "name": "test.txt",
             "type": "file",
-            "servertimestamp": "00.00",
+            "servertimestamp": "2015-01-27T12:18:15.875Z",
             "localtimestamp": "00.00",
             "modified": "false"
         },
@@ -50,25 +34,9 @@
             "children": [
                 {
                     "path": "/json/vaghul",
-                    "name": ".DS_Store",
-                    "type": "file",
-                    "servertimestamp": "00.00",
-                    "localtimestamp": "00.00",
-                    "modified": "false"
-                },
-                {
-                    "path": "/json/vaghul",
                     "name": "ab",
                     "type": "folder",
                     "children": [
-                        {
-                            "path": "/json/vaghul/ab",
-                            "name": ".DS_Store",
-                            "type": "file",
-                            "servertimestamp": "00.00",
-                            "localtimestamp": "00.00",
-                            "modified": "false"
-                        },
                         {
                             "path": "/json/vaghul/ab",
                             "name": "pool",
@@ -78,7 +46,7 @@
                                     "path": "/json/vaghul/ab/pool",
                                     "name": ".DS_Store",
                                     "type": "file",
-                                    "servertimestamp": "00.00",
+                                    "servertimestamp": "2015-01-27T12:18:15.875Z",
                                     "localtimestamp": "00.00",
                                     "modified": "false"
                                 },
@@ -86,7 +54,7 @@
                                     "path": "/json/vaghul/ab/pool",
                                     "name": "sample.java",
                                     "type": "file",
-                                    "servertimestamp": "00.00",
+                                    "servertimestamp": "2015-01-27T12:18:15.875Z",
                                     "localtimestamp": "00.00",
                                     "modified": "false"
                                 }
@@ -103,7 +71,7 @@
                             "path": "/json/vaghul/harish",
                             "name": ".DS_Store",
                             "type": "file",
-                            "servertimestamp": "00.00",
+                            "servertimestamp": "2015-01-27T12:18:15.875Z",
                             "localtimestamp": "00.00",
                             "modified": "false"
                         },
@@ -116,7 +84,7 @@
                                     "path": "/json/vaghul/harish/raj",
                                     "name": ".DS_Store",
                                     "type": "file",
-                                    "servertimestamp": "00.00",
+                                    "servertimestamp": "2015-01-27T12:18:15.875Z",
                                     "localtimestamp": "00.00",
                                     "modified": "false"
                                 },
@@ -124,7 +92,7 @@
                                     "path": "/json/vaghul/harish/raj",
                                     "name": "test.json",
                                     "type": "file",
-                                    "servertimestamp": "00.00",
+                                    "servertimestamp": "2015-01-27T12:18:15.875Z",
                                     "localtimestamp": "00.00",
                                     "modified": "false"
                                 }
