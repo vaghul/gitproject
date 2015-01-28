@@ -21,6 +21,17 @@ function normalize(parent) {
 	console.log(parent.path+"/"+ parent.name);
 	if(parent.type!='file')
     mkdir(__dirname+parent.path+"/"+ parent.name);
+/*
+	fs.mkdir(parent.path+"/"+ parent.name, 0777, true, function (err) {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log('Directory ' + directory + ' created.');
+  }
+	//console.log(parent.name);
+});
+*/
+
 
 }
 
