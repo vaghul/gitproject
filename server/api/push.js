@@ -5,7 +5,7 @@ var users;
  var clientarray= [];
  var serverarray= [];
 var push= function (req, res) {
-	var file=__dirname+'..\\..\\Repo_Files\\'+req.param('reg_id')[0];
+	var file=__dirname+'/../Repo_Files/'+req.param('reg_id')[0];
   
     users=req.param('reg_id')[0];
 	var user = {
@@ -42,12 +42,14 @@ var push= function (req, res) {
 			makeJSON('../server/Repo_Files/'+req.param('reg_id')[0]+'/'+req.param('reg_id')[1]);
 			console.log('Deleted' +obj.name+' from '+ obj.path);
 			}
-			else
+			/*else
 			{
+			file+'/'+obj.path+'/'+obj.name
 			fs.rmdirSync(file+'/'+obj.path+'/'+obj.name);
 			makeJSON('../server/Repo_Files/'+req.param('reg_id')[0]+'/'+req.param('reg_id')[1]);
 			console.log('delete');
 			}
+			*/
 			}
 		});
 		
@@ -204,7 +206,7 @@ function dirTree(filename) {
         // Assuming it's a file. In real life it could be a symlink or
         // something else!
 		var date=new Date();
-		var mtime= date.toISOString();
+		var mtime= date.toString();
         info.type = "file";
         info.servertimestamp=mtime;  // TODO: replace the time of system
         info.localtimestamp="00.00";

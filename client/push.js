@@ -10,8 +10,8 @@ if(num==null)
   console.log("no parameter provided")
 }
 var oldJson= fs.readFileSync('./'+res[1]+'/test.json');
-fs.writeFileSync('./'+res[1]+'/test.json', 'Before map');
-  makeJSON('./'+res[1]);
+//fs.writeFileSync('./'+res[1]+'/test.json', 'Before map');
+  //makeJSON('./'+res[1]);
   var readJS=fs.readFileSync('./'+res[1]+'/test.json');
 //  console.log(util.inspect(JSON.parse(readJS), false, null));
 
@@ -69,8 +69,20 @@ response.setEncoding('binary');
 		str=Buffer(str.reg_id,'base64').toString('binary');
 		str=JSON.parse(str); // the test.json JSON file in server
 		str=str.children[str.children.length-1].servertimestamp;
-		checkTime(str,JSON.parse(oldJson));
+		oldJson=JSON.parse(oldJson);
+		for(var k in oldJson.children)
+		{
 		
+		if((oldJson.children[k]["name"]=="test.json") && (oldJson.children[k]["modified"]=="true") )
+		{
+		console.log(oldJson.children[k]["name"]);
+		checkTime(str,oldJson);
+		}
+		else if((oldJson.children[k]["name"]=="test.json") && (oldJson.children[k]["modified"]=="false") )
+		{
+			console.log("Nothing to Push. Add First");
+		}
+		}
 		//console.log(str);
 		//console.log(util.inspect(str, false, null));
 		}
@@ -98,6 +110,11 @@ function traverse(parent,client) {
     }
 	if(client.type == 'file')
 	{
+		var date = new Date();
+	
+		client.servertimestamp =  date.toString();
+		//client.localtimestamp = "00.00";
+		
 	//console.log("Server"+servertime);
 	//console.log("Client"+client.servertimestamp);
 	if(servertime > client.servertimestamp)
@@ -108,9 +125,6 @@ function traverse(parent,client) {
 	else if(client.modified == 'true')
 	{
 	console.log('modified file'+client.path+"/"+ client.name);
-	var date = new Date();
-		client.servertimestamp =  date.toISOString();
-		client.localtimestamp = "00.00";
 		client.modified = "false";
 		var block=createBlock(client.path+"/"+ client.name);
 		var obj = {};
@@ -122,8 +136,8 @@ function traverse(parent,client) {
 	}
 	//console.log(client.name);
 }
-//fs.writeFileSync('./'+res[1]+'/test.json',JSON.stringify(clientJson,null,4));
-makeJSON('./'+res[1]);
+fs.writeFileSync('./'+res[1]+'/test.json',JSON.stringify(clientJson,null,4));
+//makeJSON('./'+res[1]);
   
 if(pullCount !=0)
 {
@@ -243,10 +257,10 @@ function dirTree(filename) {
         // Assuming it's a file. In real life it could be a symlink or
         // something else!
 		var date=new Date();
-		var mtime= date.toISOString();
+		var mtime= date.toString();
         info.type = "file";
         info.servertimestamp=mtime;  // TODO: replace the time of system
-        info.localtimestamp="00.00";
+        //info.localtimestamp="00.00";
         info.modified="false";
     }
 

@@ -5,15 +5,26 @@ var util = require('util');
 
 var clientarray= [];
 
+var num = process.argv[2];
 
+
+if(num==null)
+{
+  console.log("no parameter provided")
+}
+else 
+{
+var arr = num.split("/");
+if(arr.length==2)
 add();
-
+}
 function add() {
-temp=fs.readFileSync(__dirname+"/json/test.json",'binary');
+temp=fs.readFileSync(__dirname+"/"+arr[1]+"/test.json",'binary');
 temp=JSON.parse(temp);
-var parent=dirTree('./json');
+var parent=dirTree('./'+arr[1]);
 //console.log(parent);
 createoldarray(temp);
+fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 //console.log(clientarray);
 for(var key in clientarray)
     {
@@ -22,7 +33,7 @@ for(var key in clientarray)
         loadoldtonew(parent,clientarray[key]);
     
 }
-fs.writeFileSync(__dirname+"/json/test.json",JSON.stringify(parent,null,4));
+fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 console.log('Add success');
 
 };
@@ -46,7 +57,7 @@ function dirTree(filename) {
         // something else!
         info.type = "file";
         info.servertimestamp="00.00";
-        info.localtimestamp="00.00";
+        info.localtimestamp=new Date().toString();
         info.modified="true";
     }
 
@@ -70,6 +81,7 @@ function createoldarray(parent) {
     obj['path']=parent.path;
     obj['type']=parent.type;
     obj['localtimestamp']=parent.localtimestamp;
+    obj['servertimestamp']=parent.servertimestamp;
     clientarray.push(obj);
 }
 
@@ -91,15 +103,19 @@ function loadoldtonew(parent,array) {
             //console.log(parent.localtimestamp);
            // console.log(stat['mtime']);
             //console.log(stat['atime']);
-            
-            if(new Date(array.localtimestamp)<stat["mtime"])
+           // console.log(new Date(array.localtimestamp));
+            if(new Date(array.localtimestamp)<stat["mtime"]) 
             {
                 console.log('Change sensed in '+parent.path+'/'+parent.name);
+                   parent.servertimestamp=array.servertimestamp;
+             
                 parent.localtimestamp=stat["mtime"].toString();
                 parent.modified="true";
+             
             }
             else
             {
+                parent.servertimestamp=array.servertimestamp;
                 parent.localtimestamp=array.localtimestamp;
                 parent.modified='false'
             }
