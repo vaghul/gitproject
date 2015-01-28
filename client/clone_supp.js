@@ -9,8 +9,9 @@ if(num==null)
     
 var callfun=function(data,username,foldername){
   //console.log(data.slice(6,data.length));
-  //console.log(username+"/"+foldername);
-var filename =data.slice(6,data.length);
+ // console.log(data);
+var filename =data.replace('/'+foldername+'/','');
+//console.log(filename);
 var user = {
   email: 'brandon@gmail.com',
   user:username,
