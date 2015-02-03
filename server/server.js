@@ -6,7 +6,7 @@ routescan = require('express-routescan');
 app.use(body.urlencoded({ extended: false }))
 app.use(body.json());
 
-app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1");
+app.set('ip', process.env.OPENSHIFT_NODEJS_IP || "169.254.255.190");
 
 //console.log(__dirname);
 

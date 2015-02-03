@@ -111,8 +111,8 @@ function traverse(parent,client) {
 	if(client.type == 'file')
 	{
 		var date = new Date();
-	
-		client.servertimestamp =  date.toString();
+		if( client.servertimestamp =="00.00")
+			client.servertimestamp =client.localtimestamp;
 		//client.localtimestamp = "00.00";
 		
 	//console.log("Server"+servertime);
@@ -124,7 +124,8 @@ function traverse(parent,client) {
 	}
 	else if(client.modified == 'true')
 	{
-	console.log('modified file'+client.path+"/"+ client.name);
+		client.servertimestamp =  date.toString();
+		console.log('modified file'+client.path+"/"+ client.name);
 		client.modified = "false";
 		var block=createBlock(client.path+"/"+ client.name);
 		var obj = {};

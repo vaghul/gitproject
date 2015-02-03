@@ -26,7 +26,14 @@ var push= function (req, res) {
 	
 		console.log(clientarray);
 		console.log(serverarray);
-		
+		serverarray.sort(function compare(a,b) {
+		if (a.type < b.type)
+			return -1;
+		if (a.type > b.type)
+			return 1;
+		return 0;
+		});
+		console.log(serverarray);
 		serverarray.forEach(function(obj){
 			//console.log(obj);
 			//console.log(file+'/'+req.param('reg_id')[1]);
@@ -42,14 +49,14 @@ var push= function (req, res) {
 			makeJSON('../server/Repo_Files/'+req.param('reg_id')[0]+'/'+req.param('reg_id')[1]);
 			console.log('Deleted' +obj.name+' from '+ obj.path);
 			}
-			/*else
+			else if(obj.type=='folder')
 			{
 			file+'/'+obj.path+'/'+obj.name
 			fs.rmdirSync(file+'/'+obj.path+'/'+obj.name);
 			makeJSON('../server/Repo_Files/'+req.param('reg_id')[0]+'/'+req.param('reg_id')[1]);
 			console.log('delete');
 			}
-			*/
+			
 			}
 		});
 		

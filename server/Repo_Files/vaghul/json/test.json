@@ -7,8 +7,8 @@
             "path": "/json",
             "name": ".DS_Store",
             "type": "file",
-            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-            "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+            "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+            "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
             "modified": "false",
             "index": 0,
             "parentId": "0"
@@ -17,8 +17,8 @@
             "path": "/json",
             "name": "jaj.txt",
             "type": "file",
-            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-            "localtimestamp": "Sun Feb 01 2015 19:53:48 GMT+0530 (IST)",
+            "servertimestamp": "Tue Feb 03 2015 17:57:50 GMT+0530 (India Standard Time)",
+            "localtimestamp": "Tue Feb 03 2015 17:56:53 GMT+0530 (India Standard Time)",
             "modified": "false",
             "index": 1,
             "parentId": "0"
@@ -27,8 +27,8 @@
             "path": "/json",
             "name": "test.json",
             "type": "file",
-            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-            "localtimestamp": "Sun Feb 01 2015 19:54:05 GMT+0530 (IST)",
+            "servertimestamp": "Tue Feb 03 2015 18:06:33 GMT+0530 (India Standard Time)",
+            "localtimestamp": "Tue Feb 03 2015 18:05:52 GMT+0530 (India Standard Time)",
             "modified": "false",
             "index": 2,
             "parentId": "0"
@@ -47,8 +47,8 @@
                             "path": "/json/vaghul/ab",
                             "name": ".DS_Store",
                             "type": "file",
-                            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                            "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+                            "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 0,
                             "parentId": "0"
@@ -57,8 +57,8 @@
                             "path": "/json/vaghul/ab",
                             "name": "jaj.txt",
                             "type": "file",
-                            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                            "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+                            "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 1,
                             "parentId": "0"
@@ -72,8 +72,8 @@
                                     "path": "/json/vaghul/ab/pool",
                                     "name": ".DS_Store",
                                     "type": "file",
-                                    "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                                    "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+                                    "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+                                    "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
                                     "modified": "false",
                                     "index": 0,
                                     "parentId": "0"
@@ -82,33 +82,14 @@
                                     "path": "/json/vaghul/ab/pool",
                                     "name": "sample.java",
                                     "type": "file",
-                                    "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                                    "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+                                    "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+                                    "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
                                     "modified": "false",
                                     "index": 1,
                                     "parentId": "0"
                                 }
                             ],
                             "index": 2,
-                            "parentId": "0"
-                        },
-                        {
-                            "path": "/json/vaghul/ab",
-                            "name": "pools",
-                            "type": "folder",
-                            "children": [
-                                {
-                                    "path": "/json/vaghul/ab/pools",
-                                    "name": ".DS_Store",
-                                    "type": "file",
-                                    "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                                    "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
-                                    "modified": "false",
-                                    "index": 0,
-                                    "parentId": "0"
-                                }
-                            ],
-                            "index": 3,
                             "parentId": "0"
                         }
                     ],
@@ -124,29 +105,10 @@
                             "path": "/json/vaghul/harish",
                             "name": "jaj.txt",
                             "type": "file",
-                            "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                            "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
+                            "servertimestamp": "Mon Feb 02 2015 10:13:51 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Tue Feb 03 2015 17:56:41 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 0,
-                            "parentId": "0"
-                        },
-                        {
-                            "path": "/json/vaghul/harish",
-                            "name": "raj",
-                            "type": "folder",
-                            "children": [
-                                {
-                                    "path": "/json/vaghul/harish/raj",
-                                    "name": "test.json",
-                                    "type": "file",
-                                    "servertimestamp": "Sun Feb 01 2015 19:54:19 GMT+0530 (IST)",
-                                    "localtimestamp": "Sun Feb 01 2015 19:53:31 GMT+0530 (IST)",
-                                    "modified": "false",
-                                    "index": 0,
-                                    "parentId": "0"
-                                }
-                            ],
-                            "index": 1,
                             "parentId": "0"
                         }
                     ],
