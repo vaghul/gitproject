@@ -6,8 +6,7 @@ var util = require('util');
 var clientarray= [];
 
 var num = process.argv[2];
-
-
+var message=process.argv[4];
 if(num==null)
 {
   console.log("no parameter provided")
@@ -18,14 +17,56 @@ var arr = num.split("/");
 if(arr.length==2)
 commit();
 }
-function commit() {
+function commit() { 
+    var a = 5;
+var b = 6;
+console.log("" + a + b);
 temp=fs.readFileSync(__dirname+"/"+arr[1]+"/test.json",'binary');
 var parent=JSON.parse(temp);
 //console.log(parent);
-addfilecontent(parent);
-fs.writeFileSync(__dirname+"/"+arr[1]+"/fulltest.json",JSON.stringify(parent,null,4));
+//parent.commit={name: 'name', goals: 'vaghil'};
+var commitnum=createcommitno(arr[0],arr[1]);
+ parent.commit= addcommitno(parent,commitnum);
+ console.log(parent.commit);
+
+            addfilecontent(parent);
+fs.writeFileSync(__dirname+"/committest.json",JSON.stringify(parent,null,4));
 console.log('commit success');
 };
+function addcommitno(parent,num){
+   result=[]; 
+     if(parent.commit==null)
+       result.push({
+         commitno: num+(result.length+1),
+         commitmsg: message,
+         committime: new Date().toString()
+     });
+    else
+    {
+        result.push(parent.commit);
+        result.push({
+            commitno: num+(result.length+1),
+         commitmsg: message,
+         committime: new Date().toString()
+        });
+      
+    }
+return result;
+}
+function createcommitno(user,project)
+{
+    user=user.toLowerCase();
+    project=project.toLowerCase();
+    var key="";
+for (var i = 0; i <user.length; i++) 
+  key=key+user.charCodeAt(i);
+for (var i = 0; i <project.length; i++) 
+  key=key+project.charCodeAt(i);
+return key
+};
+
+
+
 
 function addfilecontent(parent) {
     if (parent && parent.children) {
@@ -36,14 +77,15 @@ function addfilecontent(parent) {
             addfilecontent(child);
         }
     }
-    if((parent.type=='file')&&(parent.name!='test.json')&&(parent.name!='.DS_Store'))
+    if((parent.type=='file')&&(parent.name!='test.json')&&(parent.name!='.DS_Store')) //include the true modifer 
     {
-        console.log(__dirname);
-        console.log(parent.path);
-        console.log(parent.name);
         var str=fs.readFileSync(__dirname+parent.path+'/'+parent.name,'binary');
-        str=Buffer(str).toString('base64');
+        //str=Buffer(str).toString('base64');
+        fs.writeFileSync(__dirname+"/"+ parent.name+".txt",str);
+
+       // console.log(str);
         parent.content=str;
+     //   console.log(parent.content);
         //console.log(str);
         //str=Buffer(str,'base64').toString('binary');
         //console.log(str);
