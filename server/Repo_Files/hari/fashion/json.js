@@ -2,7 +2,7 @@ var fs = require('fs'),
     path = require('path');
 var util = require('util');
 
-
+vaghul
 var json=dirTree('../fashion');
 //console.log(json.children[0].name);
    fs.writeFile(__dirname+"/test.json",JSON.stringify(json,null,4),'binary', function(err) {
