@@ -7,7 +7,12 @@ var clientarray= [];
 
 var num = process.argv[2];
 var message=process.argv[4];
-if(num==null)
+if(message==null)
+{
+console.log('provide a console message');
+console.log("   commit username/project -m 'message'");
+}
+else if(num==null)
 {
   console.log("no parameter provided")
 }
@@ -29,8 +34,8 @@ var commitnum=createcommitno(arr[0],arr[1]);
  parent.commit= addcommitno(parent,commitnum);
  console.log(parent.commit);
 
-            addfilecontent(parent);
-fs.writeFileSync(__dirname+"/committest.json",JSON.stringify(parent,null,4));
+            addfilecontent(parent,commitnum,parent.commit.length);
+fs.writeFileSync(__dirname+'/'+arr[1]+"/committest.json",JSON.stringify(parent,null,4));
 console.log('commit success');
 };
 function addcommitno(parent,num){
@@ -68,24 +73,25 @@ return key
 
 
 
-function addfilecontent(parent) {
+function addfilecontent(parent,num,length) {
     if (parent && parent.children) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
             var child = parent.children[i];
             child.index = i;
             if (!child.parentId) child.parentId = parent.id || '0';
-            addfilecontent(child);
+            addfilecontent(child,num,length);
         }
     }
-    if((parent.type=='file')&&(parent.name!='test.json')&&(parent.name!='.DS_Store')) //include the true modifer 
+    if((parent.type=='file')&&(parent.name!='test.json')&&(parent.name!='.DS_Store')&&(parent.modified=='true')) //include the true modifer 
     {
         var str=fs.readFileSync(__dirname+parent.path+'/'+parent.name,'binary');
-        //str=Buffer(str).toString('base64');
-        fs.writeFileSync(__dirname+"/"+ parent.name+".txt",str);
-
+        str=Buffer(str).toString('base64');
+        
        // console.log(str);
         parent.content=str;
-     //   console.log(parent.content);
+        parent.commitnum=num+length;
+      //console.log(parent.content);
+        
         //console.log(str);
         //str=Buffer(str,'base64').toString('binary');
         //console.log(str);
