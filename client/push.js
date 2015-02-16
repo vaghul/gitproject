@@ -125,6 +125,7 @@ function traverse(parent,client) {
 	else if(client.modified == 'true')
 	{
 		client.servertimestamp =  date.toString();
+		client.localtimestamp=date.toString();  // vaghul inserted this
 		console.log('modified file'+client.path+"/"+ client.name);
 		client.modified = "false";
 		var block=createBlock(client.path+"/"+ client.name);
@@ -261,7 +262,7 @@ function dirTree(filename) {
 		var mtime= date.toString();
         info.type = "file";
         info.servertimestamp=mtime;  // TODO: replace the time of system
-        //info.localtimestamp="00.00";
+        //ninfo.localtimestamp="00.00";
         info.modified="false";
     }
 

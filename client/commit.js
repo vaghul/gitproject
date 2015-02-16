@@ -82,11 +82,11 @@ function addfilecontent(parent,num,length) {
             addfilecontent(child,num,length);
         }
     }
-    if((parent.type=='file')&&(parent.name!='test.json')&&(parent.name!='.DS_Store')&&(parent.modified=='true')) //include the true modifer 
+    if((parent.type=='file')&&(parent.modified=='true')) //include the true modifer 
     {
         var str=fs.readFileSync(__dirname+parent.path+'/'+parent.name,'binary');
         str=Buffer(str).toString('base64');
-        
+        console.log(parent.name);
        // console.log(str);
         parent.content=str;
         parent.commitnum=num+length;
