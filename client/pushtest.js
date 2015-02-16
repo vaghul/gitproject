@@ -3,7 +3,8 @@ var fs =require('fs');
 var path = require('path');
 
 var num = process.argv[2];
-
+var time,pull=0,pullup=0;
+var pushfiles=require('./pushtest_supp');
 
 if(num==null)
 {
@@ -14,20 +15,14 @@ else
 var arr = num.split("/");
 if(arr.length==2)
 {
-if(fs.existsSync(__dirname+'/'+arr[1]+'/committest.json'))
+if(fs.existsSync(__dirname+'/'+arr[1]+'/test.json'))
   {
-console.log('pushing '+arr[1]+' ....');
- var commitjson=fs.readFileSync('./'+arr[1]+'/committest.json');
- var testjson=fs.readFileSync('./'+arr[1]+'/test.json');
- testjson=JSON.parse(testjson);
-  commitjson=JSON.parse(commitjson);
- testjson.commit=commitjson.commit;
- fs.writeFileSync('./'+arr[1]+'/test.json',JSON.stringify(testjson,null,4));
+
 var user = {
   email: 'brandon@gmail.com',
   user:arr[0],
   folder:arr[1],
-  file:commitjson
+  file:'test.json'
 };
 
 
@@ -35,7 +30,7 @@ var data = JSON.stringify(user);
 //The url we want is `www.nodejitsu.com:1337/`
 var options = {
   host: '127.0.0.1',
-  path: '/git/pushtest',
+  path: '/git/push/json',
   //since we are listening on a custom port, we need to specify it by hand
   port: '3000',
   //This is what changes the request to a POST request
@@ -59,10 +54,16 @@ callback = function(response) {
   response.on('end', function () {
     if(str!="")
     {
-      //console.log(str);
-      
+      str=JSON.parse(str);
+      str=Buffer(str.file,'base64').toString('binary');
+      var parent=JSON.parse(str);
+      getservertime(parent);
+      traverse(parent);
+      if(pull==0)
+        console.log('Repo  upto-date ');
+      else    
+       pushfiles.pushfile(arr[0],arr[1]);
      
-      console.log('push '+arr[1]+' success !!!');
 
 
     }
@@ -89,3 +90,59 @@ console.log('   KLON commit');
 else
 console.log('The parameter provided is false');
 }
+
+
+
+
+function traverse(parent)
+{
+
+ if (parent && parent.children) {
+        for (var i = 0, l = parent.children.length; i < l; ++i) {
+            var child = parent.children[i];
+            child.index = i;
+            if (!child.parentId) child.parentId = parent.id || '0';
+            traverse(child);
+        }
+    }
+  if(parent.type == 'file')
+  {
+    var date = new Date();
+    if( parent.servertimestamp =="00.00")
+      parent.servertimestamp =parent.localtimestamp;
+   
+   
+  if((time > parent.servertimestamp))
+  {
+  //console.log('please pull');// pull message
+  pull=0;
+  }
+  else
+    pull=1;
+ 
+  }
+
+ 
+
+};
+
+
+
+
+
+function getservertime(parent)
+{
+ if (parent && parent.children) {
+        for (var i = 0, l = parent.children.length; i < l; ++i) {
+            var child = parent.children[i];
+            child.index = i;
+            if (!child.parentId) child.parentId = parent.id || '0';
+            getservertime(child);
+        }
+    }
+  if(parent.type == 'file')
+  {
+    time= parent.servertimestamp;
+
+  }
+};

@@ -55,7 +55,7 @@ callback = function(response) {
       //console.log(str.reg_id);
       str=Buffer(str.file,'base64');
       //console.log(__dirname);
-      console.log(filename);
+     // console.log(filename);
      if(filename=='test.json')
      {
       str=Buffer(str,'base64').toString('binary');
@@ -64,7 +64,7 @@ callback = function(response) {
       changejsontime(parent);
      
         fs.writeFileSync(__dirname+"/"+foldername+"/"+filename, JSON.stringify(parent,null,4));
-        console.log('test.json');
+      
      }
      else
      {   

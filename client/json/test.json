@@ -11,20 +11,17 @@
             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
             "modified": "false",
             "index": 0,
-            "parentId": "0",
-            "content": null
+            "parentId": "0"
         },
         {
             "path": "/json",
             "name": "committest.json",
             "type": "file",
-            "servertimestamp": "Mon Feb 16 2015 22:37:20 GMT+0530 (IST)",
-            "localtimestamp": "Mon Feb 16 2015 22:27:52 GMT+0530 (IST)",
-            "modified": "false",
+            "servertimestamp": "00.00",
+            "localtimestamp": "Mon Feb 16 2015 22:37:36 GMT+0530 (IST)",
+            "modified": "true",
             "index": 1,
-            "parentId": "0",
-            "content": null,
-            "commitnum": "118971031041171081061151111101"
+            "parentId": "0"
         },
         {
             "path": "/json",
@@ -34,8 +31,7 @@
             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
             "modified": "false",
             "index": 2,
-            "parentId": "0",
-            "content": null
+            "parentId": "0"
         },
         {
             "path": "/json",
@@ -43,11 +39,9 @@
             "type": "file",
             "servertimestamp": "Mon Feb 16 2015 22:37:20 GMT+0530 (IST)",
             "localtimestamp": "Mon Feb 16 2015 22:28:24 GMT+0530 (IST)",
-            "modified": "false",
+            "modified": "true",
             "index": 3,
-            "parentId": "0",
-            "content": null,
-            "commitnum": "118971031041171081061151111101"
+            "parentId": "0"
         },
         {
             "path": "/json",
@@ -62,8 +56,7 @@
                     "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                     "modified": "false",
                     "index": 0,
-                    "parentId": "0",
-                    "content": null
+                    "parentId": "0"
                 },
                 {
                     "path": "/json/vaghul",
@@ -78,8 +71,7 @@
                             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                             "modified": "false",
                             "index": 0,
-                            "parentId": "0",
-                            "content": null
+                            "parentId": "0"
                         },
                         {
                             "path": "/json/vaghul/ab",
@@ -89,8 +81,7 @@
                             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                             "modified": "false",
                             "index": 1,
-                            "parentId": "0",
-                            "content": null
+                            "parentId": "0"
                         },
                         {
                             "path": "/json/vaghul/ab",
@@ -105,8 +96,7 @@
                                     "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                                     "modified": "false",
                                     "index": 0,
-                                    "parentId": "0",
-                                    "content": null
+                                    "parentId": "0"
                                 },
                                 {
                                     "path": "/json/vaghul/ab/pool",
@@ -116,8 +106,7 @@
                                     "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                                     "modified": "false",
                                     "index": 1,
-                                    "parentId": "0",
-                                    "content": null
+                                    "parentId": "0"
                                 }
                             ],
                             "index": 2,
@@ -140,8 +129,7 @@
                             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                             "modified": "false",
                             "index": 0,
-                            "parentId": "0",
-                            "content": null
+                            "parentId": "0"
                         },
                         {
                             "path": "/json/vaghul/harish",
@@ -151,8 +139,7 @@
                             "localtimestamp": "Mon Feb 16 2015 22:24:12 GMT+0530 (IST)",
                             "modified": "false",
                             "index": 1,
-                            "parentId": "0",
-                            "content": null
+                            "parentId": "0"
                         }
                     ],
                     "index": 2,
@@ -194,9 +181,7 @@
             "localtimestamp": "Mon Feb 16 2015 22:25:59 GMT+0530 (IST)",
             "modified": "false",
             "index": 5,
-            "parentId": "0",
-            "content": null,
-            "commitnum": "118971031041171081061151111101"
+            "parentId": "0"
         }
     ],
     "commit": [

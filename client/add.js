@@ -49,6 +49,7 @@ for(var key in clientarray)
         loadoldtonew(parent,clientarray[key]);
     
 }
+parent.commit=temp.commit;
 fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 console.log('Add success');
 };
@@ -140,14 +141,14 @@ function loadoldtonew(parent,array) {
     }
     if((array.path==parent.path)&&(array.name==parent.name))
     {   
-        if(parent.type=='file')
+        if((parent.type=='file')&&(parent.name!='committest.json'))
         {
             var stat=fs.statSync("./"+parent.path+"/"+parent.name);
             //console.log(parent.localtimestamp);
             //console.log(stat['mtime']);
             //console.log(stat['atime']);
            // console.log(new Date(array.localtimestamp));
-            if((new Date(array.localtimestamp)<=stat["mtime"])) 
+            if((new Date(array.localtimestamp)<stat["mtime"])) 
             {
                 console.log('Change sensed in '+parent.path+'/'+parent.name);
                    parent.servertimestamp=array.servertimestamp;

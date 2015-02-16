@@ -2,9 +2,9 @@ var fs=require('fs'),
 path = require('path');
 
 
+
 var pushtest= function (req, res) {
 
- 
 
 var commitjson=req.param('file');
 commitarr=commitjson.commit;
@@ -13,17 +13,15 @@ commitnum=commitarr[commitarr.length-1].commitno;
 createfolder(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
 createfile(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
 var file=__dirname+'/../Repo_Files/'+req.param('user')+'/'+req.param('folder')+'/';
-//parent=removecontent(commitjson);
-//fs.writeFileSync(file+'test.json',JSON.stringify(parent,null,4));
+parent=removecontent(commitjson);
+fs.writeFileSync(file+'test.json',JSON.stringify(parent,null,4));
 
 fs.writeFileSync(file+commitnum+'.json',JSON.stringify(commitjson,null,4));
 
 
 
 res.status(200);
-res.send("done");
-
- 
+res.send(parent);
 
 
 
