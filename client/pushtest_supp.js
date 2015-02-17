@@ -58,7 +58,7 @@ callback = function(response) {
      fs.writeFileSync('./'+foldername+'/test.json',JSON.stringify(str,null,4));
  
       console.log('push '+foldername+' success !!!');
-
+      fs.unlink('./'+foldername+'/committest.json');
 
     }
     else

@@ -118,7 +118,8 @@ function createoldarray(parent) {
         }
     }
     //console.log(parent.name);
-    
+    if(parent.type=='file')
+    {
     var obj= {};
     obj['name']=parent.name;
     obj['path']=parent.path;
@@ -126,7 +127,7 @@ function createoldarray(parent) {
     obj['localtimestamp']=parent.localtimestamp;
     obj['servertimestamp']=parent.servertimestamp;
     clientarray.push(obj);
-    
+    }
 }
 
 
@@ -141,21 +142,37 @@ function loadoldtonew(parent,array) {
     }
     if((array.path==parent.path)&&(array.name==parent.name))
     {   
+
         if((parent.type=='file')&&(parent.name!='committest.json'))
         {
             var stat=fs.statSync("./"+parent.path+"/"+parent.name);
-            //console.log(parent.localtimestamp);
-            //console.log(stat['mtime']);
+            
+           // console.log(parent.path+' '+parent.name);
+            //console.log('parent '+parent.localtimestamp);
+            //console.log('modified '+stat['mtime']);
+            //console.log(array.localtimestamp);
             //console.log(stat['atime']);
            // console.log(new Date(array.localtimestamp));
-            if((new Date(array.localtimestamp)<stat["mtime"])) 
+           if(array.servertimestamp=='00.00')
+           {
+            console.log('created new file '+parent.path+'/'+parent.name);
+                   parent.servertimestamp=array.servertimestamp;
+             
+               // parent.localtimestamp=stat["mtime"].toString();
+                parent.localtimestamp=array.localtimestamp;
+            //   console.log(parent.path+' '+parent.name);
+                parent.modified="true";
+             
+
+           }
+            else if(new Date(array.localtimestamp)<stat["mtime"])
             {
                 console.log('Change sensed in '+parent.path+'/'+parent.name);
                    parent.servertimestamp=array.servertimestamp;
              
                // parent.localtimestamp=stat["mtime"].toString();
                 parent.localtimestamp=array.localtimestamp;
-               
+            //   console.log(parent.path+' '+parent.name);
                 parent.modified="true";
              
             }
@@ -170,5 +187,4 @@ function loadoldtonew(parent,array) {
 
 
     }
-     
      };

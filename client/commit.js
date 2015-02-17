@@ -51,7 +51,8 @@ function addcommitno(parent,num){
      });
     else
     {
-        result.push(parent.commit);
+        for(var i=0;i<parent.commit.length;i++)
+        result.push(parent.commit[i]);
         result.push({
             commitno: num+(result.length+1),
          commitmsg: message,
