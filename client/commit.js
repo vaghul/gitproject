@@ -7,6 +7,8 @@ var clientarray= [];
 
 var num = process.argv[2];
 var message=process.argv[4];
+var filepath = process.argv[5];
+
 var iscommit;
 if(message==null)
 {
@@ -24,7 +26,7 @@ if(arr.length==2)
 commit();
 }
 function commit() { 
-  temp=fs.readFileSync(__dirname+"/"+arr[1]+"/test.json",'binary');
+  temp=fs.readFileSync(filepath+"/"+arr[1]+"/test.json",'binary');
 var parent=JSON.parse(temp);
 //console.log(parent);
 //parent.commit={name: 'name', goals: 'vaghil'};
@@ -35,7 +37,7 @@ iscommit=0;
 addfilecontent(parent,commitnum,parent.commit.length);
 if(iscommit!=0)
 {
-fs.writeFileSync(__dirname+'/'+arr[1]+"/committest.json",JSON.stringify(parent,null,4));
+fs.writeFileSync(filepath+'/'+arr[1]+"/committest.json",JSON.stringify(parent,null,4));
 console.log('commit success');
 }
 else
@@ -89,7 +91,7 @@ function addfilecontent(parent,num,length) {
     if((parent.type=='file')&&(parent.modified=='true')) //include the true modifer 
     {
         iscommit++;
-        var str=fs.readFileSync(__dirname+parent.path+'/'+parent.name,'binary');
+        var str=fs.readFileSync(filepath+parent.path+'/'+parent.name,'binary');
         str=Buffer(str).toString('base64');
         console.log('File commited '+parent.name);
        // console.log(str);

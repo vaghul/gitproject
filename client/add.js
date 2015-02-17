@@ -6,6 +6,7 @@ var util = require('util');
 var clientarray= [];
 var flag=0;
 var num = process.argv[2];
+var filepath = process.argv[3];
 
 
 if(num==null)
@@ -17,7 +18,7 @@ else
 var arr = num.split("/");
 if(arr.length==2)
 {
-if(fs.existsSync(__dirname+'/'+arr[1]+'/test.json'))
+if(fs.existsSync(filepath+'/'+arr[1]+'/test.json'))
     add();
 else
     addfirst();
@@ -26,21 +27,21 @@ else
 
 function addfirst()
 {
-fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",'vaghul');
+fs.writeFileSync(filepath+"/"+arr[1]+"/test.json",'vaghul');
 var parent=dirTreefirst('./'+arr[1]);
-fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
+fs.writeFileSync(filepath+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 console.log('add sucess');
 console.log(flag);
 };
 
 function add() {
 flag=0;
-temp=fs.readFileSync(__dirname+"/"+arr[1]+"/test.json",'binary');
+temp=fs.readFileSync(filepath+"/"+arr[1]+"/test.json",'binary');
 temp=JSON.parse(temp);
 var parent=dirTree('./'+arr[1]);
 //console.log(parent);
 createoldarray(temp);
-fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
+fs.writeFileSync(filepath+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 //console.log(clientarray);
 for(var key in clientarray)
     {
@@ -50,7 +51,7 @@ for(var key in clientarray)
     
 }
 parent.commit=temp.commit;
-fs.writeFileSync(__dirname+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
+fs.writeFileSync(filepath+"/"+arr[1]+"/test.json",JSON.stringify(parent,null,4));
 console.log('Add success');
 };
 
