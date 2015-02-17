@@ -7,7 +7,7 @@ if(num==null)
   console.log("no parameter provided")
 }*/
     
-var callfun=function(data,username,foldername){
+var callfun=function(data,username,foldername,filepath){
   //console.log(data.slice(6,data.length));
  // console.log(data);
 var filename =data.replace('/'+foldername+'/','');
@@ -63,12 +63,12 @@ callback = function(response) {
 
       changejsontime(parent);
      
-        fs.writeFileSync(__dirname+"/"+foldername+"/"+filename, JSON.stringify(parent,null,4));
+        fs.writeFileSync(filepath+"/"+foldername+"/"+filename, JSON.stringify(parent,null,4));
       
      }
      else
      {   
-      fs.writeFile(__dirname+"/"+foldername+"/"+filename, str,'binary', function(err) {
+      fs.writeFile(filepath+"/"+foldername+"/"+filename, str,'binary', function(err) {
     if(err) 
         console.log(err);
      });

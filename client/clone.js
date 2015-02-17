@@ -3,9 +3,10 @@ var fs =require('fs');
 var path = require('path');
 
 var num = process.argv[2];
+var filepath = process.argv[3];
 
 
-if(num==null)
+if(num==null && filepath==null)
 {
   console.log("no parameter provided")
 }
@@ -14,7 +15,7 @@ else
 var arr = num.split("/");
 if(arr.length==2)
 {
-if(!fs.existsSync(__dirname+'/'+arr[1]+'/test.json'))
+if(!fs.existsSync(filepath+'/'+arr[1]+'/test.json'))
   {
 console.log('Cloning '+arr[1]+' ....');
 
@@ -110,7 +111,7 @@ function createfile(parent) {
      if(parent.type=='file')
      {
     //console.log(parent.path+"/"+ parent.name);
-    t.callfun(parent.path+"/"+ parent.name,arr[0],arr[1]);
+    t.callfun(parent.path+"/"+ parent.name,arr[0],arr[1],filepath);
   }
      };
 
@@ -127,7 +128,7 @@ function createfolder(parent) {
     }
 
      if(parent.type!='file')
-    mkdir(__dirname+parent.path+"/"+ parent.name);
+    mkdir(filepath+parent.path+"/"+ parent.name);
      };
 
 function mkdir(dirPath, mode, callback) {
