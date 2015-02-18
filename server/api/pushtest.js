@@ -1,5 +1,6 @@
 var fs=require('fs'),
 path = require('path');
+var async=require('async');
 
 var deleted=[];
 var newfiles=[];
@@ -10,6 +11,9 @@ newfiles=[];
 oldfiles=[];
 
 var file=__dirname+'/../Repo_Files/'+req.param('user')+'/'+req.param('folder')+'/';
+
+if(fs.existsSync(file+'/test.json'))
+  {
 
 var oldjson=fs.readFileSync(file+'test.json','binary');
 
@@ -68,6 +72,45 @@ for(key in deleted)
 
     res.json(parent);
 res.status(200);
+}// end of if
+else
+{
+console.log('tet');
+
+var commitjson=req.param('file');
+commitarr=commitjson.commit;
+commitnum=commitarr[commitarr.length-1].commitno;
+//console.log(commitjson);
+async.waterfall([
+    function(callback) {
+	console.log('done1');
+		createfolder(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
+        callback(null,'one','two');
+    },
+    function(arg1,arg2,callback) {
+	console.log('done2');
+       createfile(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
+	callback(null,'three');
+    },
+    function(arg1,callback) {
+console.log('done3');
+        addfilecontent(commitjson,req.param('user'));
+		callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
+	fs.writeFileSync(file+commitnum+'.json',JSON.stringify(commitjson,null,4));
+parent=removecontent(commitjson);
+//checkdelete(oldjson,parent);
+fs.writeFileSync(file+'test.json',JSON.stringify(parent,null,4));
+
+console.log('done');    
+  res.json(parent);
+res.status(200);
+
+});
+
+}
 };
 
 function loadoldfiles(parent) {
@@ -113,7 +156,7 @@ function loadnewfiles(parent) {
      };
 
 function addfilecontent(parent,file) {
-    if (parent && parent.children) {
+	if (parent && parent.children) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
             var child = parent.children[i];
             child.index = i;
@@ -123,7 +166,8 @@ function addfilecontent(parent,file) {
     }
     if((parent.type=='file')&&(parent.modified=='true')) //include the true modifer 
     {
-        var str=fs.readFileSync(__dirname+'/../Repo_Files/'+file+parent.path+'/'+parent.name,'binary');
+	   
+	   var str=fs.readFileSync(__dirname+'/../Repo_Files/'+file+parent.path+'/'+parent.name,'binary');
         str=Buffer(str).toString('base64');
         parent.content=str;
        
@@ -155,7 +199,7 @@ return parent;
 };
 
 function createfile(parent,path) {
-    if (parent && parent.children) {
+	if (parent && parent.children) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
             var child = parent.children[i];
             child.index = i;
@@ -166,9 +210,10 @@ function createfile(parent,path) {
 
      if((parent.type=='file')&&(parent.modified=='true'))
      {
+	 
      	var content=new Buffer(parent.content,'base64').toString('binary');
-fs.writeFileSync(path+parent.path+"/"+ parent.name,content,'binary');
- console.log('node written'+parent.path+"/"+ parent.name);   
+		fs.writeFileSync(path+parent.path+"/"+ parent.name,content,'binary');
+		console.log('node written'+parent.path+"/"+ parent.name);   
   }
      };
 
@@ -178,14 +223,20 @@ function createfolder(parent,path) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
             var child = parent.children[i];
             child.index = i;
+			 if(parent.type!='file')
+		{
+			fs.mkdir(path+parent.path+"/"+ parent.name,function(error) {
+			if(error){} 
+			//console.log('created');
+			});
+		console.log('Creating '+ path+parent.path+"/"+ parent.name);
+		}
             if (!child.parentId) child.parentId = parent.id || '0';
             createfolder(child,path);
         }
     }
 
-     if(parent.type!='file')
-    mkdir(path+parent.path+"/"+ parent.name);
-     };
+   };
 
 function mkdir(dirPath, mode, callback) {
   //Call the standard fs.mkdir
@@ -196,10 +247,11 @@ function mkdir(dirPath, mode, callback) {
       mkdir(path.dirname(dirPath), mode, callback);
       //And then the directory
       mkdir(dirPath, mode, callback);
-    }
+   }
     //Manually run the callback since we used our own callback to do all these
     callback && callback(error);
   });
+  
 };
 
 

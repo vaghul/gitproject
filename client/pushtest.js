@@ -68,7 +68,10 @@ callback = function(response) {
 
     }
     else
-      console.log("Failure KLON file not found");
+     {
+	 console.log('first push');
+	 pushfiles.pushfile(arr[0],arr[1]);
+	 }
   });
 }
 
