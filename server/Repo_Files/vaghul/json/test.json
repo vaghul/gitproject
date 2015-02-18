@@ -5,39 +5,25 @@
     "children": [
         {
             "path": "/json",
-            "name": ".DS_Store",
+            "name": "jaj.txt",
             "type": "file",
-            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+            "localtimestamp": "Wed Feb 18 2015 19:41:53 GMT+0530 (India Standard Time)",
             "modified": "false",
             "index": 0,
             "parentId": "0",
-            "content": null,
-            "commitnum": "118971031041171081061151111101"
-        },
-        {
-            "path": "/json",
-            "name": "jaj.txt",
-            "type": "file",
-            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
-            "modified": "false",
-            "index": 1,
-            "parentId": "0",
-            "content": null,
-            "commitnum": "118971031041171081061151111101"
+            "content": null
         },
         {
             "path": "/json",
             "name": "test.json",
             "type": "file",
-            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-            "localtimestamp": "Wed Feb 18 2015 12:26:14 GMT+0530 (India Standard Time)",
+            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+            "localtimestamp": "Wed Feb 18 2015 19:43:09 GMT+0530 (India Standard Time)",
             "modified": "false",
-            "index": 2,
+            "index": 1,
             "parentId": "0",
             "content": null,
-            "commitnum": "118971031041171081061151111101"
         },
         {
             "path": "/json",
@@ -48,13 +34,12 @@
                     "path": "/json/vaghul",
                     "name": ".DS_Store",
                     "type": "file",
-                    "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                    "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                    "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                    "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                     "modified": "false",
                     "index": 0,
                     "parentId": "0",
-                    "content": null,
-                    "commitnum": "118971031041171081061151111101"
+                    "content": null
                 },
                 {
                     "path": "/json/vaghul",
@@ -65,25 +50,23 @@
                             "path": "/json/vaghul/ab",
                             "name": ".DS_Store",
                             "type": "file",
-                            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 0,
                             "parentId": "0",
-                            "content": null,
-                            "commitnum": "118971031041171081061151111101"
+                            "content": null
                         },
                         {
                             "path": "/json/vaghul/ab",
                             "name": "jaj.txt",
                             "type": "file",
-                            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 1,
                             "parentId": "0",
-                            "content": null,
-                            "commitnum": "118971031041171081061151111101"
+                            "content": null
                         },
                         {
                             "path": "/json/vaghul/ab",
@@ -94,25 +77,23 @@
                                     "path": "/json/vaghul/ab/pool",
                                     "name": ".DS_Store",
                                     "type": "file",
-                                    "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                                    "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                                    "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                                    "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                                     "modified": "false",
                                     "index": 0,
                                     "parentId": "0",
-                                    "content": null,
-                                    "commitnum": "118971031041171081061151111101"
+                                    "content": null
                                 },
                                 {
                                     "path": "/json/vaghul/ab/pool",
                                     "name": "sample.java",
                                     "type": "file",
-                                    "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                                    "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                                    "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                                    "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                                     "modified": "false",
                                     "index": 1,
                                     "parentId": "0",
-                                    "content": null,
-                                    "commitnum": "118971031041171081061151111101"
+                                    "content": null
                                 }
                             ],
                             "index": 2,
@@ -131,25 +112,23 @@
                             "path": "/json/vaghul/harish",
                             "name": ".DS_Store",
                             "type": "file",
-                            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 0,
                             "parentId": "0",
-                            "content": null,
-                            "commitnum": "118971031041171081061151111101"
+                            "content": null
                         },
                         {
                             "path": "/json/vaghul/harish",
                             "name": "jaj.txt",
                             "type": "file",
-                            "servertimestamp": "Wed Feb 18 2015 12:26:31 GMT+0530 (India Standard Time)",
-                            "localtimestamp": "Wed Feb 18 2015 12:15:55 GMT+0530 (India Standard Time)",
+                            "servertimestamp": "Wed Feb 18 2015 19:43:42 GMT+0530 (India Standard Time)",
+                            "localtimestamp": "Wed Feb 18 2015 19:20:58 GMT+0530 (India Standard Time)",
                             "modified": "false",
                             "index": 1,
                             "parentId": "0",
-                            "content": null,
-                            "commitnum": "118971031041171081061151111101"
+                            "content": null
                         }
                     ],
                     "index": 2,
@@ -180,15 +159,8 @@
                     "parentId": "0"
                 }
             ],
-            "index": 3,
+            "index": 2,
             "parentId": "0"
-        }
-    ],
-    "commit": [
-        {
-            "commitno": "118971031041171081061151111101",
-            "commitmsg": "'test'",
-            "committime": "Wed Feb 18 2015 12:26:22 GMT+0530 (India Standard Time)"
         }
     ]
 }
