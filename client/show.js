@@ -20,6 +20,12 @@ console.log('Showing'+arr[1]+' ....');
 
 var commit = fs.readFileSync(filepath+'/'+arr[1]+'/test.json');
 commit= JSON.parse(commit);
+if(!commit.commit)
+{
+  console.log('No commits have been made');
+}
+else
+{
 console.log('Listing commits');
 console.log('        Commit ID                 CommitMsg                               Date');
 console.log('----------------------------------------------------------------------------------------------------');
@@ -29,6 +35,11 @@ for(var k in commitArray)
 {
 	console.log(commitArray[k]['commitno']+'   '+commitArray[k]['commitmsg']+'  '+commitArray[k]['committime']);
 }
+}
+}
+else
+{
+  console.log('Commits not found');
 }
 }
 }
