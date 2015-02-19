@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title><%= title %></title>
+  
+  <link rel="stylesheet" href="./stylesheets/bootstrap.css">
+  <link rel="stylesheet" href="./stylesheets/style.css">
+
+  <script src="./js/jquery-1.11.1.min.js"></script>
+  <script src="./js/bootstrap.min.js"></script>
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+//});
+});
+function getFile(val)
+{
+//$("a").click(function(event){
+//var val= $("a").attr("id");
+//console.log(val);
+$.get('/path',{id: val},function(res) {
+console.log('done');
+//console.log(res.file);
+document.getElementById("file").innerHTML=res.file;
+});
+}
+</script>
+</head>
+<body>
+<% if(path!=null) { %>
+Path :
+<ul>
+<% for(var i=0; i<path.length; i++) {
+if(path[i].search('test.json')==-1)
+{
+%>
+	<li><a id='<%= path[i] %>' onclick="getFile(id)"><%= path[i].slice(11,path[i].length) %></a></li>
+<% }} %>
+</ul>
+<% }
+ %>
+<div id="container">
+File Contents :<br />
+<textarea id="file" rows="20" cols="50" readonly></textarea>
+</div>
+</body>
+</html>

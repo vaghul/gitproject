@@ -65,12 +65,12 @@ callback = function(response) {
       str=JSON.parse(str);
       str=Buffer(str.file,'base64').toString('binary');
       var commitjson=JSON.parse(str);
-	  console.log(util.inspect(commitjson,false,null));
-	  //deleteFolderRecursive(filepath+'/'+arr[1]);
-	  //createfolder(commitjson);
-      //createfile(commitjson);
+	  //console.log(util.inspect(commitjson,false,null));
+	  deleteFolderRecursive(filepath+'/'+arr[1]);
+	  createfolder(commitjson,filepath);
+      createfile(commitjson,filepath);
 
-	  traverse(commitjson,commitno);
+	  //traverse(commitjson,commitno);
 	  var testJS=fs.readFileSync(filepath+'/'+arr[1]+'/test.json');
 	  testJS=JSON.parse(testJS);
 	  testJS.commit= commitArray;
@@ -98,7 +98,7 @@ req.end();
 else
 console.log('The parameter provided is false');
 }
-/*
+
 function deleteFolderRecursive(path) {
 		if( fs.existsSync(path) ) {
 		fs.readdirSync(path).forEach(function(file,index){
@@ -113,36 +113,55 @@ function deleteFolderRecursive(path) {
 	}
 	};
 
-function createfile(parent) {
+function createfile(parent,path) {
+
     if (parent && parent.children) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
             var child = parent.children[i];
             child.index = i;
             if (!child.parentId) child.parentId = parent.id || '0';
-            createfile(child);
+            createfile(child,path);
         }
     }
 
      if(parent.type=='file')
      {
-    //console.log(parent.path+"/"+ parent.name);
-    writeFile(parent);
+    console.log(path+parent.path+"/"+ parent.name);
+    writeFile(parent,path);
 	}
      };
 
 	 
-	 function writeFile(parent){
+	 function writeFile(parent,path){
 	 if(parent.type=='file')
      {
-	 
      	var content=new Buffer(parent.content,'base64').toString('binary');
 		fs.writeFileSync(path+parent.path+"/"+ parent.name,content,'binary');
 		console.log('Created File '+parent.path+"/"+ parent.name);   
 		}
 	 }
 	 
+function createfolder(parent,path) {
+    if (parent && parent.children) {
+        for (var i = 0, l = parent.children.length; i < l; ++i) {
+            var child = parent.children[i];
+            child.index = i;
+			 if(parent.type!='file')
+		{
+			fs.mkdir(path +parent.path+"/"+ parent.name,function(error) {
+			if(error){} 
+			//console.log('created');
+			});
+			console.log('Creating '+ parent.path+"/"+ parent.name);
+		}
+            if (!child.parentId) child.parentId = parent.id || '0';
+            createfolder(child,path);
+        }
+    }
 
-*/
+   };
+	 
+	 
 function traverse(parent,commitno) {
     if (parent && parent.children) {
         for (var i = 0, l = parent.children.length; i < l; ++i) {
@@ -164,7 +183,7 @@ function traverse(parent,commitno) {
 		}
 	 }
 	 }
-/*
+
 function mkdir(dirPath, mode, callback) {
   //Call the standard fs.mkdir
   fs.mkdir(dirPath, mode, function(error) {
@@ -179,4 +198,3 @@ function mkdir(dirPath, mode, callback) {
     callback && callback(error);
   });
 };
-*/

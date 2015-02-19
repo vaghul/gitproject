@@ -21,18 +21,30 @@ var oldjson=fs.readFileSync(file+'test.json','binary');
 var commitjson=req.param('file');
 commitarr=commitjson.commit;
 commitnum=commitarr[commitarr.length-1].commitno;
-
-createfolder(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
-createfile(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
-
-
+async.waterfall([
+    function(callback) {
+	console.log('done1');
+		createfolder(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
+        callback(null,'one','two');
+    },
+    function(arg1,arg2,callback) {
+	console.log('done2');
+       createfile(commitjson,__dirname+'/../Repo_Files/'+req.param('user'));
+	callback(null,'three');
+    },
+    function(arg1,callback) {
+console.log('done3');
+        addfilecontent(commitjson,req.param('user'));
+		callback(null, 'done');
+    }
+], function (err, result) {
+    // result now equals 'done'
+	
 oldjson=JSON.parse(oldjson);
 loadoldfiles(oldjson);
 loadnewfiles(commitjson);
 
-
-addfilecontent(commitjson,req.param('user'));
-fs.writeFileSync(file+commitnum+'.json',JSON.stringify(commitjson,null,4));
+	fs.writeFileSync(file+commitnum+'.json',JSON.stringify(commitjson,null,4));
 parent=removecontent(commitjson);
 //checkdelete(oldjson,parent);
 fs.writeFileSync(file+'test.json',JSON.stringify(parent,null,4));
@@ -69,9 +81,16 @@ for(key in deleted)
     fs.unlink(__dirname+'/../Repo_Files/'+req.param('user')+deleted[key].path+'/'+deleted[key].name);
 }
 
-
-    res.json(parent);
+   res.json(parent);
 res.status(200);
+
+ 
+});
+
+
+
+
+
 }// end of if
 else
 {
@@ -121,7 +140,7 @@ function loadoldfiles(parent) {
             if (!child.parentId) child.parentId = parent.id || '0';
             loadoldfiles(child);
         }
-    }
+    }                     
     if(parent.type=='file') //include the true modifer 
     {
        var obj={};
@@ -164,7 +183,7 @@ function addfilecontent(parent,file) {
             addfilecontent(child,file);
         }
     }
-    if((parent.type=='file')&&(parent.modified=='true')) //include the true modifer 
+    if((parent.type=='file')) //include the true modifer 
     {
 	   
 	   var str=fs.readFileSync(__dirname+'/../Repo_Files/'+file+parent.path+'/'+parent.name,'binary');
