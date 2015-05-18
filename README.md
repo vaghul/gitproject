@@ -4,7 +4,7 @@ It is a version control system (similar to the working of GIT) but is  efficient
   
 # Description
   
-It is develped on Node.js, web based application along with a client pakage installed in the host system prior to operatiion. It works on windows platform.
+It is develped on Node.js, web based application along with a client pakage installed in the host system prior to operations. The package works on windows.
       
 
 # Disclamier      
