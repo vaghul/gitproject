@@ -10,8 +10,3 @@ It is develped on Node.js, web based application along with a client pakage inst
 # Disclamier      
  
 This application is simple and based soley on the working not on the interface. The UI can be developed based on needs.
-
-# Support
-    
-For any queries and any bugs please mail to vaghulk@gmail.com. we would be happy to help you out. Thanks
-      
